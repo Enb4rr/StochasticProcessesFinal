@@ -53,8 +53,6 @@ public class MapManager : MonoBehaviour
 
     public void MovePlayer(int movement)
     {
-        //Get current tile position:
-
         currentTilePosition = 0;
 
         foreach (MapTile tile in tiles)
@@ -69,8 +67,6 @@ public class MapManager : MonoBehaviour
             }
         }
 
-        //See how much is left to reach end
-
         if (currentTilePosition + movement <= tiles.Count)
         {
             while (movement > 0)
@@ -81,10 +77,33 @@ public class MapManager : MonoBehaviour
             }
 
             OnSaveTrajectory?.Invoke(currentTilePosition);
+            CheckFinalTile();
         }
-        else
+    }
+
+    private void CheckFinalTile()
+    {
+        MapTile currentTile = tiles[0];
+
+        foreach (MapTile tile in tiles)
         {
-            Debug.Log("Necestas un " + (10 - currentTilePosition) + " para terminar el juego");
+            if (tile.transform.position == player.transform.position)
+            {
+                currentTile = tile;
+            }
+        }
+
+        if (currentTile.bad == true)
+        {
+            player.transform.DOMove(tiles[currentTile.transportPosition].transform.position, 0.5f, false);
+            currentTilePosition = currentTile.transportPosition;
+            OnSaveTrajectory?.Invoke(currentTilePosition);
+        }
+        else if (currentTile.good == true)
+        {
+            player.transform.DOMove(tiles[currentTile.transportPosition].transform.position, 0.5f, false);
+            currentTilePosition = currentTile.transportPosition;
+            OnSaveTrajectory?.Invoke(currentTilePosition);
         }
     }
 
