@@ -25,6 +25,7 @@ public class MapManager : MonoBehaviour
     private Dice dice;
 
     private int currentTilePosition;
+    private MapTile currentTile;
 
     private void Awake()
     {
@@ -37,6 +38,7 @@ public class MapManager : MonoBehaviour
     {
         player.transform.position = tiles[0].transform.position;
         currentTilePosition = 0;
+        currentTile = tiles[0];
     }
 
     private void OnEnable()
@@ -77,44 +79,46 @@ public class MapManager : MonoBehaviour
             }
 
             OnSaveTrajectory?.Invoke(currentTilePosition);
-            CheckFinalTile();
+            StartCoroutine(CheckFinalTile());
         }
     }
 
-    private void CheckFinalTile()
+    private IEnumerator CheckFinalTile()
     {
-        MapTile currentTile = tiles[0];
+        yield return new WaitForSeconds(0.6f);
 
         foreach (MapTile tile in tiles)
         {
             if (tile.transform.position == player.transform.position)
             {
                 currentTile = tile;
+                break;
             }
         }
 
         if (currentTile.bad == true)
         {
-            player.transform.DOMove(tiles[currentTile.transportPosition].transform.position, 0.5f, false);
-            currentTilePosition = currentTile.transportPosition;
+            player.transform.DOMove(tiles[currentTile.transportPosition - 1].transform.position, 0.6f, false);
+            currentTilePosition = currentTile.transportPosition - 1;
             OnSaveTrajectory?.Invoke(currentTilePosition);
         }
         else if (currentTile.good == true)
         {
-            player.transform.DOMove(tiles[currentTile.transportPosition].transform.position, 0.5f, false);
-            currentTilePosition = currentTile.transportPosition;
+            player.transform.DOMove(tiles[currentTile.transportPosition - 1].transform.position, 0.6f, false);
+            currentTilePosition = currentTile.transportPosition - 1;
             OnSaveTrajectory?.Invoke(currentTilePosition);
         }
     }
 
     private void MoveToNextTile(int current)
     {
-        player.transform.DOMove(tiles[current + 1].transform.position, 0.5f, false);
+        player.transform.DOMove(tiles[current + 1].transform.position, 0.6f, false);
     }
 
     public void ResetMap()
     {
         player.transform.position = tiles[0].transform.position;
         currentTilePosition = 0;
+        currentTile = tiles[0];
     }
 }
