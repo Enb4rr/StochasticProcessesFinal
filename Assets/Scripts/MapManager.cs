@@ -24,7 +24,7 @@ public class MapManager : MonoBehaviour
     private GameObject player;
     private Dice dice;
 
-    private int currentTilePosition;
+    public int currentTilePosition;
     private MapTile currentTile;
 
     private void Awake()

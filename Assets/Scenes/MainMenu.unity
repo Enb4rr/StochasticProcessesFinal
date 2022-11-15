@@ -617,7 +617,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &373125002
@@ -752,7 +752,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &490828745
@@ -1508,7 +1508,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &882779974
@@ -1776,7 +1776,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1043862582}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2004949753}
+        m_TargetAssemblyTypeName: LuckSelection, Assembly-CSharp
+        m_MethodName: OnPressedNormalLuck
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1043862582
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1998,7 +2010,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1142157456}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2004949753}
+        m_TargetAssemblyTypeName: LuckSelection, Assembly-CSharp
+        m_MethodName: OnPressedGoodLuck
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1142157456
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2357,7 +2381,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1272426952}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2004949753}
+        m_TargetAssemblyTypeName: LuckSelection, Assembly-CSharp
+        m_MethodName: OnPressedBackLuck
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1272426952
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3027,7 +3063,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1560705179
@@ -3571,7 +3607,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1983331950
@@ -3595,6 +3631,7 @@ GameObject:
   - component: {fileID: 2004949749}
   - component: {fileID: 2004949748}
   - component: {fileID: 2004949752}
+  - component: {fileID: 2004949753}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -3704,3 +3741,18 @@ MonoBehaviour:
   menu: {fileID: 1455410865}
   options: {fileID: 934543164}
   credits: {fileID: 1180720709}
+--- !u!114 &2004949753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2004949747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29a0d75c16b5df349a917f94792494ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goodLuckB: {fileID: 1142157455}
+  badLuckB: {fileID: 1272426951}
+  normalLuckB: {fileID: 1043862581}
