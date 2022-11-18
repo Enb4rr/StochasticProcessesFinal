@@ -26,7 +26,7 @@ public class WriteTrajectory : MonoBehaviour
 
     private void Start()
     {
-        trajectoryText.text = "  [ " + "0" + " ]  ";
+        trajectoryText.text = "  [ " + "1" + " ]  ";
     }
 
     private void OnEnable()
@@ -48,6 +48,6 @@ public class WriteTrajectory : MonoBehaviour
 
     public void ResetTrajectory()
     {
-        trajectoryText.text = "  [ " + "0" + " ]  ";
+        trajectoryText.text = "  [ " + "1" + " ]  ";
     }
 }
